@@ -16,10 +16,18 @@ class InterestRateController extends Controller
         return view('admin.interest_rates.create');
     }
 
-    public function store(Request $request) {
-        InterestRate::create($request->all());
-        return redirect()->back()->with('showRates', true);
-        //return redirect()->route('admin.dashboard'); //redireciona a la vista despues de registrar una tasa nueva
+    public function store(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'rate' => 'required|numeric|min:0'
+    ]);
+
+    InterestRate::create([
+        'name' => $request->name,
+        'rate' => $request->rate
+    ]);
+        return redirect()->back()->with('showRates', 'Tasa creada correctamente');
     }
 
     public function edit(InterestRate $interest_rate) {

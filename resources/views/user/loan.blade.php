@@ -40,6 +40,10 @@ Limpiar
 Nueva solicitud de Entrega
 </h2>
 
+@php
+$latestRate = \App\Models\InterestRate::latest()->first();
+@endphp
+
 <form action="{{ route('loans.store') }}" method="POST"
 class="grid md:grid-cols-3 gap-5">
 @csrf
@@ -48,14 +52,14 @@ class="grid md:grid-cols-3 gap-5">
 placeholder="Monto solicitado"
 class="rounded-xl border p-3">
 
-<select name="interest_rate_id" required
-class="rounded-xl border p-3">
-@foreach(\App\Models\InterestRate::all() as $rate)
-<option value="{{ $rate->id }}">
-{{ $rate->rate }}%
-</option>
-@endforeach
-</select>
+{{-- Mostrar tasa fija --}}
+<div class="rounded-xl border p-3 bg-gray-100 font-semibold text-center">
+    {{ $latestRate->rate ?? 0 }}%
+</div>
+
+{{-- Enviar ID oculto --}}
+<input type="hidden" name="interest_rate_id"
+value="{{ $latestRate->id ?? '' }}">
 
 <button class="bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-semibold">
 Solicitar

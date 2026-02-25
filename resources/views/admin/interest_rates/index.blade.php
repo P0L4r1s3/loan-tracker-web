@@ -11,24 +11,44 @@
 </div>
 
 <!-- Formulario oculto -->
-<div x-show="showForm" x-transition class="mb-4">
-
 <form method="POST" action="{{ route('interest-rates.store') }}" class="flex gap-2">
 @csrf
 
-<input name="name" placeholder="Nombre"
- class="border p-2 rounded w-1/2">
+<div class="w-1/2">
+    <input 
+        name="name" 
+        placeholder="Nombre"
+        value="{{ old('name') }}"
+        required
+        class="border p-2 rounded w-full @error('name') border-red-500 @enderror">
 
-<input name="rate" type="number" step="0.01"
- placeholder="%"
- class="border p-2 rounded w-1/4">
+    @error('name')
+        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+    @enderror
+</div>
 
-<button type="submit" class="bg-green-600 hover:bg-green-700 text-white px-4 rounded">
+<div class="w-1/4">
+    <input 
+        name="rate" 
+        type="number" 
+        step="0.01"
+        min="0"
+        placeholder="%"
+        value="{{ old('rate') }}"
+        required
+        class="border p-2 rounded w-full @error('rate') border-red-500 @enderror">
+
+    @error('rate')
+        <p class="text-red-500 text-xs mt-1">{{ $message }}</p>
+    @enderror
+</div>
+
+<button type="submit"
+ class="bg-green-600 hover:bg-green-700 text-white px-4 rounded shadow">
 Agregar
 </button>
 
 </form>
-</div>
 
 <!-- Tabla -->
 <table class="max-w-3xl w-full mx-auto border rounded">

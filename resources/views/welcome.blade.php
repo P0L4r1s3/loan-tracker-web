@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Sistema de Préstamos</title>
+<link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
 @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
