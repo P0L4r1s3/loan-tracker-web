@@ -7,11 +7,13 @@
 @csrf
 
 <input name="name" placeholder="Nombre"
- class="w-full border p-2 mb-3 rounded">
+ class="w-full border p-2 mb-3 rounded"
+ required>
 
 <input name="rate" type="number" step="0.01"
  placeholder="Tasa %"
- class="w-full border p-2 mb-3 rounded">
+ class="w-full border p-2 mb-3 rounded"
+ required>
 
 <button class="bg-blue-500 text-white px-4 py-2 rounded">
 Guardar
