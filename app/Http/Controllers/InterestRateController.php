@@ -34,11 +34,18 @@ class InterestRateController extends Controller
         return view('admin.interest_rates.edit', compact('interest_rate'));
     }
 
-    public function update(Request $request, InterestRate $interest_rate) {
-        $interest_rate->update($request->all());
-        //return redirect()->route('interest-rates.index');
-        return back();
-    }
+    public function update(Request $request, InterestRate $interest_rate)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+    ]);
+
+    $interest_rate->update([
+        'name' => $request->name
+    ]);
+
+    return back()->with('success','Nombre actualizado');
+}
 
     public function destroy(InterestRate $interest_rate) {
         $interest_rate->delete();
