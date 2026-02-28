@@ -9,7 +9,7 @@
                     <button @click="showRates = !showRates" 
                             class="inline-flex items-center px-4 py-2 bg-gray-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">
                         <i class="fas fa-percentage mr-2"></i>
-                        {{ __('Tasas de Interés') }}
+                        {{ __('Comisión Porcentual') }}
                     </button>
 
                     <div x-show="showRates" 
@@ -43,7 +43,7 @@
                                 <div class="bg-gray-50 px-6 py-4 border-b border-gray-200">
                                     <div class="flex items-center justify-between">
                                         <h3 class="text-lg font-medium text-gray-900" id="modal-title">
-                                            {{ __('Configuración de Tasas de Interés') }}
+                                            {{ __('Configuración de Comisiones') }}
                                         </h3>
                                         <button @click="showRates = false" class="text-gray-400 hover:text-gray-500">
                                             <i class="fas fa-times text-xl"></i>
@@ -177,7 +177,7 @@
                                     <thead class="bg-gray-50">
                                         <tr>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Entrega</th>
-                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interés</th>
+                                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comisión Porcentual</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Comisión</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Monto Total</th>
                                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Estado</th>
